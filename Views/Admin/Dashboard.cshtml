@@ -1,0 +1,168 @@
+@model AdminDashboardViewModel
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h4 class="fw-bold mb-0">Admin Dashboard</h4>
+        <div>
+            <span class="text-muted me-2">@Context.Session.GetString("AdminName")</span>
+            <a asp-action="Logout" class="btn btn-sm btn-outline-secondary">Logout</a>
+        </div>
+    </div>
+
+    <!-- Stats Row -->
+    <div class="row g-3 mb-4">
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm p-3">
+                <small class="text-uppercase text-muted fw-semibold">Candidates</small>
+                <h2 class="fw-bold text-purple mb-0">@Model.CandidateCount</h2>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm p-3">
+                <small class="text-uppercase text-muted fw-semibold">Votes Cast</small>
+                <h2 class="fw-bold text-purple mb-0">@Model.VotesCast</h2>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm p-3">
+                <small class="text-uppercase text-muted fw-semibold">Result</small>
+                <h2 class="fw-bold @(Model.ResultStatus == "Declared" ? "text-success" : "text-warning") mb-0">
+                    🕐 @Model.ResultStatus
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Candidate -->
+    <div class="card border-0 shadow-sm mb-4">
+        <div class="card-header bg-white fw-bold">Add Candidate</div>
+        <div class="card-body">
+            <form asp-action="AddCandidate" method="post">
+                <div class="row g-2">
+                    <div class="col-md-3">
+                        <input asp-for="NewCandidate.FullName" class="form-control" placeholder="Tarun Basak" />
+                    </div>
+                    <div class="col-md-2">
+                        <input asp-for="NewCandidate.Party" class="form-control" placeholder="BJP" />
+                    </div>
+                    <div class="col-md-3">
+                        <select asp-for="NewCandidate.Constituency" class="form-select">
+                            <option value="">Select Constituency</option>
+                            <option>Rajpur Sonarpur</option>
+                            <option>North Dum Dum</option>
+                            <option>Diamond Harbour</option>
+                            <option>Behala East</option>
+                            <option>Jadavpur</option>
+                            <option>Kolkata South</option>
+                            <option>Kolkata North</option>
+                            <option>Howrah</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <input asp-for="NewCandidate.Password" type="password" class="form-control" placeholder="Password" />
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-purple w-100">Add Candidate</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Candidates List -->
+    <div class="card border-0 shadow-sm mb-4">
+        <div class="card-header bg-white fw-bold">Candidates</div>
+        <div class="card-body">
+            @if (!Model.Candidates.Any())
+            {
+                <p class="text-muted text-center">No candidates added yet.</p>
+            }
+            else
+            {
+                <div class="table-responsive">
+                    <table class="table align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Party</th>
+                                <th>Constituency</th>
+                                <th>Votes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{ int i = 1; }
+                            @foreach (var c in Model.Candidates)
+                            {
+                                <tr>
+                                    <td>@i</td>
+                                    <td>@c.FullName</td>
+                                    <td><span class="badge bg-purple">@c.Party</span></td>
+                                    <td>@c.Constituency</td>
+                                    <td>@c.VoteCount</td>
+                                </tr>
+                                i++;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- Voters Who Voted -->
+    <div class="card border-0 shadow-sm mb-4">
+        <div class="card-header bg-white fw-bold">Voters Who Voted (@Model.VotesCast)</div>
+        <div class="card-body">
+            @if (!Model.VotersWhoVoted.Any())
+            {
+                <p class="text-muted text-center">No votes cast yet.</p>
+            }
+            else
+            {
+                <div class="table-responsive">
+                    <table class="table align-middle">
+                        <thead class="table-light">
+                            <tr><th>#</th><th>Name</th><th>EPIC Number</th><th>Constituency</th></tr>
+                        </thead>
+                        <tbody>
+                            @{ int j = 1; }
+                            @foreach (var v in Model.VotersWhoVoted)
+                            {
+                                <tr>
+                                    <td>@j</td>
+                                    <td>@v.FullName</td>
+                                    <td>@v.EpicNumber</td>
+                                    <td>@v.Constituency</td>
+                                </tr>
+                                j++;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- Declare Result -->
+    <div class="card border-0 shadow-sm">
+        <div class="card-header bg-white fw-bold">Declare Election Result</div>
+        <div class="card-body">
+            <p class="text-muted small">This will tally all votes and close voting permanently.</p>
+            @if (Model.ResultStatus == "Declared")
+            {
+                <div class="alert alert-success">Election result has already been declared.</div>
+            }
+            else
+            {
+                <form asp-action="DeclareResult" method="post"
+                    onsubmit="return confirm('Are you sure? This will close voting and declare the result.')">
+                    <button type="submit" class="btn btn-danger">Declare Election Result</button>
+                </form>
+            }
+        </div>
+    </div>
+</div>

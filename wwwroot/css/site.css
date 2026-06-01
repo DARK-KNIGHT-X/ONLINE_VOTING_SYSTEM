@@ -1,0 +1,102 @@
+:root {
+    --purple: #6c3fc5;
+    --purple-light: #f3eeff;
+}
+
+body {
+    background-color: #f8f9fc;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Purple Color Utilities */
+.text-purple { color: var(--purple) !important; }
+.bg-purple { background-color: var(--purple) !important; }
+.bg-purple-light { background-color: var(--purple-light) !important; }
+
+/* Buttons */
+.btn-purple {
+    background-color: var(--purple);
+    color: white;
+    border: 2px solid var(--purple);
+}
+.btn-purple:hover {
+    background-color: #5630a8;
+    color: white;
+    border-color: #5630a8;
+}
+.btn-outline-purple {
+    color: var(--purple);
+    border: 2px solid var(--purple);
+    background: transparent;
+}
+.btn-outline-purple:hover {
+    background-color: var(--purple);
+    color: white;
+}
+
+/* Navbar */
+.navbar-brand.text-purple { font-size: 1.3rem; }
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #f8f4ff 0%, #ede8ff 50%, #f0f4ff 100%);
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+}
+
+/* Role Cards */
+.role-card {
+    border-radius: 16px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+.role-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(108, 63, 197, 0.15);
+}
+.role-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--purple-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Candidate Cards */
+.candidate-card {
+    border-radius: 16px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.candidate-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(108, 63, 197, 0.15);
+}
+.candidate-avatar {
+    width: 64px;
+    height: 64px;
+    background: var(--purple-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Forms */
+.form-control:focus, .form-select:focus {
+    border-color: var(--purple);
+    box-shadow: 0 0 0 0.2rem rgba(108, 63, 197, 0.2);
+}
+.card {
+    border-radius: 12px;
+}
+
+/* Badge */
+.badge.bg-purple {
+    background-color: var(--purple) !important;
+}
+
+/* Footer */
+.footer { font-size: 0.85rem; }

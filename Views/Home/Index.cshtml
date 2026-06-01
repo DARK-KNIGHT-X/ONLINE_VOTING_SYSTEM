@@ -1,0 +1,80 @@
+@{
+    ViewData["Title"] = "Home";
+}
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container text-center py-5">
+        <h1 class="display-4 fw-bold text-purple mb-3">Digital Voting, Reinvented</h1>
+        <p class="lead text-muted mb-4">Secure, fast and transparent elections with modern technology and zero complexity.</p>
+        <div class="d-flex justify-content-center gap-3 mb-5">
+            <a asp-controller="Voter" asp-action="Register" class="btn btn-purple btn-lg px-4">Get Started</a>
+            <a asp-controller="Home" asp-action="Results" class="btn btn-outline-secondary btn-lg px-4">View Results</a>
+        </div>
+
+        <!-- Stats -->
+        <div class="row justify-content-center g-4 mb-5">
+            <div class="col-auto text-center">
+                <h3 class="fw-bold text-purple">@(ViewBag.TotalVotes ?? 0)+</h3>
+                <small class="text-muted">Votes Cast</small>
+            </div>
+            <div class="col-auto text-center">
+                <h3 class="fw-bold text-purple">@(ViewBag.TotalCandidates ?? 0)+</h3>
+                <small class="text-muted">Candidates</small>
+            </div>
+            <div class="col-auto text-center">
+                <h3 class="fw-bold text-purple">99.9%</h3>
+                <small class="text-muted">Uptime</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Role Cards -->
+<section class="container pb-5">
+    <div class="row g-4 justify-content-center">
+        <!-- Voter Card -->
+        <div class="col-md-4">
+            <div class="card role-card h-100 text-center p-4">
+                <div class="role-icon mx-auto mb-3">
+                    <i class="fas fa-id-card fa-2x text-purple"></i>
+                </div>
+                <h5 class="fw-bold">Voter</h5>
+                <p class="text-muted small">Register and cast your vote securely.</p>
+                <div class="d-flex flex-column gap-2 mt-3">
+                    <a asp-controller="Voter" asp-action="Register" class="btn btn-purple">Register</a>
+                    <a asp-controller="Voter" asp-action="Login" class="btn btn-outline-purple">Login</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Candidate Card -->
+        <div class="col-md-4">
+            <div class="card role-card h-100 text-center p-4">
+                <div class="role-icon mx-auto mb-3">
+                    <i class="fas fa-user-tie fa-2x text-purple"></i>
+                </div>
+                <h5 class="fw-bold">Candidate</h5>
+                <p class="text-muted small">Track performance and view election insights.</p>
+                <div class="d-flex flex-column gap-2 mt-3">
+                    <a asp-controller="Home" asp-action="Results" class="btn btn-outline-purple">Login</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Card -->
+        <div class="col-md-4">
+            <div class="card role-card h-100 text-center p-4">
+                <div class="role-icon mx-auto mb-3">
+                    <i class="fas fa-cog fa-2x text-purple"></i>
+                </div>
+                <h5 class="fw-bold">Admin</h5>
+                <p class="text-muted small">Manage elections and declare final results.</p>
+                <div class="d-flex flex-column gap-2 mt-3">
+                    <a asp-controller="Admin" asp-action="Register" class="btn btn-purple">Create Account</a>
+                    <a asp-controller="Admin" asp-action="Login" class="btn btn-outline-purple">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
