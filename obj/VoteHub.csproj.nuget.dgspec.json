@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP\\Downloads\\VoteHub_Final\\votehub\\VoteHub.csproj": {}
+    "C:\\Users\\HP\\Downloads\\VoteHub_Final\\VoteHub\\VoteHub.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP\\Downloads\\VoteHub_Final\\votehub\\VoteHub.csproj": {
+    "C:\\Users\\HP\\Downloads\\VoteHub_Final\\VoteHub\\VoteHub.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Downloads\\VoteHub_Final\\votehub\\VoteHub.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\Downloads\\VoteHub_Final\\VoteHub\\VoteHub.csproj",
         "projectName": "VoteHub",
-        "projectPath": "C:\\Users\\HP\\Downloads\\VoteHub_Final\\votehub\\VoteHub.csproj",
+        "projectPath": "C:\\Users\\HP\\Downloads\\VoteHub_Final\\VoteHub\\VoteHub.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Downloads\\VoteHub_Final\\votehub\\obj\\",
+        "outputPath": "C:\\Users\\HP\\Downloads\\VoteHub_Final\\VoteHub\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config"

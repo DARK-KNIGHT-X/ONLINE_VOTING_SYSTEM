@@ -100,3 +100,4 @@ C:\Users\HP\Downloads\VoteHub_Final\votehub\obj\Debug\net8.0\refint\VoteHub.dll
 C:\Users\HP\Downloads\VoteHub_Final\votehub\obj\Debug\net8.0\VoteHub.pdb
 C:\Users\HP\Downloads\VoteHub_Final\votehub\obj\Debug\net8.0\VoteHub.genruntimeconfig.cache
 C:\Users\HP\Downloads\VoteHub_Final\votehub\obj\Debug\net8.0\ref\VoteHub.dll
+C:\Users\HP\Downloads\VoteHub_Final\votehub\obj\Debug\net8.0\VoteHub.sourcelink.json

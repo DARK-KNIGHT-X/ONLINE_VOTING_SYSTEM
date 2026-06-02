@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yDzERnDaPH4=",
+  "dgSpecHash": "iIPSOXcDPWc=",
   "success": true,
-  "projectFilePath": "C:\\Users\\HP\\Downloads\\VoteHub_Final\\votehub\\VoteHub.csproj",
+  "projectFilePath": "C:\\Users\\HP\\Downloads\\VoteHub_Final\\VoteHub\\VoteHub.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HP\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
